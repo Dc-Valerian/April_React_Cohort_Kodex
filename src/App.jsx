@@ -1,42 +1,29 @@
+import Header from "./Header/Header";
+import HeroPage from "./LandingPage/HeroPage";
+import CardProps from "./CardProps/CardProps";
+import HomeScreen from "./LandingPage/HomeScreen";
+import Feature from "./FeaturePage/Feature";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ErrorPage from "./ErrorPage/ErrorPage";
+import ReactHooks from "./ReactHooks/ReactHooks";
+
 function App() {
   return (
     <div>
-      <header className="bg-[white] flex items-center justify-between h-20 p-8">
-        <div className="text-[black] text-[25px] font-bold">Valerian.</div>
+      <BrowserRouter>
+        <Header />
 
-        <div className="">
-          <ul className="flex items-center gap-10">
-            <li>
-              <a href="">Features</a>
-            </li>
-            <li>
-              <a href="">About</a>
-            </li>
-            <li>
-              <a href="">Services</a>
-            </li>
-            <li>
-              <a href="">Gallery</a>
-            </li>
-            <li>
-              <a href="">Testimonial</a>
-            </li>
-          </ul>
-        </div>
-      </header>
-
-      <section
-        className="h-125 bg-cover bg-center flex flex-col items-center justify-center gap-4 text-white"
-        style={{
-          backgroundImage: `url(${"https://react-landing-page-template-93ne.vercel.app/img/intro-bg.jpg"})`,
-        }}
-      >
-        <h1 className="text-[black] text-[40px] font-bold">Valerian Pedro</h1>
-        <p>Welcome to My Portfolio Review</p>
-        <button className="bg-[blue] w-[200px] h-[50px] rounded-2xl hover:bg-[green] cursor-pointer">View Resume</button>
-      </section>
+        <Routes>
+          <Route path="/" element={<HomeScreen />} />
+          <Route path="/feature" element={<Feature />} />
+          <Route path="/react-hooks" element={<ReactHooks />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
 
 export default App;
+
+// React Hook
